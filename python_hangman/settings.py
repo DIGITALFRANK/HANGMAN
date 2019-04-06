@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog.apps.GameConfig',
-    'catalog.apps.UserConfig',
-    'catalog.apps.AnalyticsConfig',
+    'game.apps.GameConfig',
+    'user.apps.UserConfig',
+    'analytics.apps.AnalyticsConfig',
+    'rules.apps.RulesConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,8 +58,10 @@ ROOT_URLCONF = 'python_hangman.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        # 'DIRS': [],
+        'DIRS': ['templates'],
+        #'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
