@@ -68,18 +68,10 @@ header h1 {
     justify-content: center;
 }
 
-#wordReveal {
-    /* background: rgb(224, 20, 20); */
+#wordReveal h2 {
+    letter-spacing: .5em;
 }
-#hangMan {
-    /* background: rgb(224, 169, 20); */
-}
-#guess {
-    /* background: rgb(20, 34, 224); */
-}
-#missedGuesses {
-    /* background: rgb(20, 224, 98); */
-}
+
 
 #missedGuesses ul {
     list-style: none;
