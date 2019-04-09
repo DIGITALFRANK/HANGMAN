@@ -27,13 +27,13 @@
       </header>
       <main class="mainContent">
         <section id="wordReveal">
-          <h2>"_ _ _ _ _ _ _ _ _ _ _ _ _"</h2>
+          <h2 class="revealWord">"_____________"</h2>
         </section>
         <section id="hangMan">
 
         </section>
         <section id="missedGuesses">
-          <ul>
+          <ul id="missesList">
             <li>R</li>
           </ul>
         </section>
@@ -41,7 +41,7 @@
             <form id="letterGuessForm">
                 <label for="exampleInputEmail1">your guess</label>
                 <input type="text" class="form-control-plaintext" id="letterGuessInput" maxlength="1">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="letterGuess">Submit</button>
               </form>
         </section>
       </main>
@@ -55,6 +55,14 @@
 
   <script>
     // userId = // Django current user
+    // fetchWord();
+    // $("#letterGuess").onclick(letterGuess($("#letterGuessInput").value));
+    // ...
+    if (userWonGame == False && missedGuesses.length > 5) {
+      alert("Sorry you've lost, try again with a new word");
+      // python: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
+      fetchWord(); // or give user option to logout or try new word
+    };
     // ...
     // game business logic using functions & variables found in /static/js/app.js
     // use Django variables and connect/save to database here
