@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'game.apps.GameConfig',
     'user.apps.UserConfig',
     'analytics.apps.AnalyticsConfig',
-    'rules.apps.RulesConfig',
 ]
 
 MIDDLEWARE = [

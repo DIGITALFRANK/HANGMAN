@@ -50,28 +50,28 @@ class WordGame(models.Model):
         return word
 
 
-    def guess(letterInput):
-        for i, c in enumerate('secretWord'):
-            if c == letterInput:
-                wordReveal[i] = letterInput
-                # FrontEnd alert "good guess!"
-            else:
-                # FrontEnd alert f'{upper(letterInput} is not in the secret word!'
-                WordGame.missedGuesses.append(letterInput)
-                if len(missedGuesses == 1):
-                    # FrontEnd noose animation
-                    elif len(missedGuesses == 2):
-                    # FrontEnd head animation
-                    elif len(missedGuesses == 3):
-                    # FrontEnd torso animation
-                    elif len(missedGuesses == 4):
-                    # FrontEnd arms animation
-                    elif len(missedGuesses == 5):
-                    # FrontEnd left leg animation
-                    elif len(missedGuesses == 6):
-                        # FrontEnd right leg animation
-                        # FrontEnd alert "you've lost"
-                        # FrontEnd button choice start new game / logout
+    # def guess(letterInput):
+    #     for i, c in enumerate('secretWord'):
+    #         if c == letterInput:
+    #             wordReveal[i] = letterInput
+    #             # FrontEnd alert "good guess!"
+    #         else:
+    #             # FrontEnd alert f'{upper(letterInput} is not in the secret word!'
+    #             WordGame.missedGuesses.append(letterInput)
+    #             if len(missedGuesses == 1):
+    #                 # FrontEnd noose animation
+    #                 elif len(missedGuesses == 2):
+    #                 # FrontEnd head animation
+    #                 elif len(missedGuesses == 3):
+    #                 # FrontEnd torso animation
+    #                 elif len(missedGuesses == 4):
+    #                 # FrontEnd arms animation
+    #                 elif len(missedGuesses == 5):
+    #                 # FrontEnd left leg animation
+    #                 elif len(missedGuesses == 6):
+    #                     # FrontEnd right leg animation
+    #                     # FrontEnd alert "you've lost"
+    #                     # FrontEnd button choice start new game / logout
 
     def showMisses():
         for c in missedGuesses:

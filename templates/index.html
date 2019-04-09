@@ -3,11 +3,61 @@
   <head>
     <meta charset="utf-8">
     <title>HangMAN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css" media="screen"/>
   </head>
   <body>
-    <h1 class="test">This template will be where you output your SPA html page!!</h1>
-  </body>
+    <!-- <h1 class="test">This template will be where you output your SPA html page!!</h1> -->
+    <div class="container">
+      <header>
+        <section id="userInfo">
+          <h2>username / user level</h2>
+          <h2>badge points 11000</h2>
+        </section>
+        <section id="title">
+          <h1>HANGMAN</h1>
+          <h4>game rules</h4>
+          <h4>hangman stats</h4>
+        </section>
+        <section id="difficulty">
+          <h6>difficulty level : <span>easy</span></h6>
+          <!-- Django vaiable? or bootstrap form select, which changes API url in JS -->
+        </section>
+      </header>
+      <main class="mainContent">
+        <section id="wordReveal">
+          <h2>"_ _ _ _ _ _ _ _ _ _ _ _ _"</h2>
+        </section>
+        <section id="hangMan">
 
+        </section>
+        <section id="missedGuesses">
+          <ul>
+            <li>R</li>
+          </ul>
+        </section>
+        <section id="guess">
+            <form id="letterGuessForm">
+                <label for="exampleInputEmail1">your guess</label>
+                <input type="text" class="form-control-plaintext" id="letterGuessInput" maxlength="1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </section>
+      </main>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
   <script src="/static/js/app.js"></script>
+
+  <script>
+    // userId = // Django current user
+    // ...
+    // game business logic using functions & variables found in /static/js/app.js
+    // use Django variables and connect/save to database here
+  </script>
+  </body>
 </html>
