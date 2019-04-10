@@ -12,6 +12,10 @@ body {
     /* background: #999; */
 }
 
+
+
+/*----------- Header and User Info -----------*/
+
 header {
     width: 100%;
     height: 20vh;
@@ -46,6 +50,11 @@ header h1 {
     color: rgb(253, 86, 231);
 }
 
+
+
+
+/*----------- Main Content -----------*/
+
 .mainContent {
     height: 80vh;
     width: 100%;
@@ -73,20 +82,36 @@ header h1 {
 }
 
 
+
+
+/*----------- Misses -----------*/
+
+#missedGuesses {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 #missedGuesses ul {
+    width: 100%;
     list-style: none;
 }
 
 #missedGuesses li {
     border: #666 2px solid;
-    padding: 10px;
-    width: 50px;
+    padding: 10px 25px;
     text-align: center;
+}
+
+.misses {
+    display: inline;
+    margin: 10px;
 }
 
 
 
 
+/*----------- Guess -----------*/
 
 #letterGuessForm {
     display: flex;
@@ -102,4 +127,8 @@ header h1 {
     border: #999 1px solid;
     text-align: center;
     
+}
+
+#newGame {
+    margin-left: 25px; 
 }
