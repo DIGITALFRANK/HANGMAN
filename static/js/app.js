@@ -58,7 +58,7 @@
         for (let i =0; i < correctGuesses.length; i++) {
             if (letterInput == correctGuesses[i]) {
                 alert("you've already correclty guessed the letter " + "' " + letterInput.toUpperCase() + " ', it's present")
-                break;
+                break; // fix this
             }
         }
 
@@ -81,7 +81,7 @@
                 for (let i =0; i < missedGuesses.length; i++) {
                     if (letterInput == missedGuesses[i]) {
                         alert("you've already correclty guessed the letter " + "' " + letterInput.toUpperCase() + " ', it's incorrect")
-                        break;
+                        break; // fix this
                     }
                 }
 
