@@ -27,14 +27,16 @@
       </header>
       <main class="mainContent">
         <section id="wordReveal">
-          <h2 class="revealWord">"_____________"</h2>
+          <h2 class="revealWord"></h2>
         </section>
         <section id="hangMan">
 
         </section>
         <section id="missedGuesses">
+          <h3>incorrect guesses</h3>
+          <!-- <img class="arrowDown" src="/static/imgs/arrowDown.png"/> -->
           <ul id="missesList">
-            <li>R</li>
+            
           </ul>
         </section>
         <section id="guess">
@@ -42,30 +44,36 @@
                 <label for="exampleInputEmail1">your guess</label>
                 <input type="text" class="form-control-plaintext" id="letterGuessInput" maxlength="1">
                 <button type="submit" class="btn btn-primary" id="letterGuess">Submit</button>
+                <button type="" class="btn btn-success" id="newGame">New Game</button>
               </form>
         </section>
       </main>
     </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
   <script src="/static/js/app.js"></script>
 
   <script>
-    // userId = // Django current user
-    // fetchWord();
-    // $("#letterGuess").onclick(letterGuess($("#letterGuessInput").value));
-    // ...
-    if (userWonGame == False && missedGuesses.length > 5) {
-      alert("Sorry you've lost, try again with a new word");
-      // python: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
-      fetchWord(); // or give user option to logout or try new word
-    };
-    // ...
-    // game business logic using functions & variables found in /static/js/app.js
-    // use Django variables and connect/save to database here
+    $( document ).ready(function() {
+      // userId = // Django current user
+      startGame();
+      // ...
+      if (userWonGame == true) {
+        // Django: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
+        // Django: user.badgepoints += appropriate # based on difficulty
+      }
+      // if (userWonGame == false && missedGuesses.length > 5) {
+      //   alert("Sorry you've lost, try again with a new word");
+      //   // Django: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
+      //   startGame(); // or give user option to logout or try new word
+      // };
+      // ...
+      // game business logic using functions & variables found in /static/js/app.js
+      // use Django variables and connect/save to database here
+    });
   </script>
   </body>
 </html>
