@@ -18,31 +18,16 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth import views
 from game import views
-
-#url & template
-# from django.conf.urls import url
 from django.views.generic.base import TemplateView
 
 
 
 
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('', TemplateView.as_view(template_name="index.html")),
-#     # url(r'^$', TemplateView.as_view(template_name="index.html")),
-# ]
-
 
 urlpatterns = [
-    # path('game/', include('game.urls')),
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name="login.html")),
-    # path('', TemplateView.as_view(template_name="index.html")),
-    # url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^index/$',views.index,name='index'),
-    # url(r'^$',views.index,name='user_login'),
-    # url(r'^special/',views.special,name='special'),
-    # url(r'^game/',include('game.urls')),
     url(r'^register/$',views.register,name='register'),
     url(r'^user_login/$',views.user_login,name='user_login'),
     url(r'^logout/$', views.user_logout, name='logout'),
