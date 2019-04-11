@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'game.apps.GameConfig',
-    'user.apps.UserConfig',
-    'analytics.apps.AnalyticsConfig',
     'crispy_forms'
 ]
 
@@ -137,6 +135,7 @@ STATICFILES_DIRS = [
     '/static/',
 ]
 
+LOGIN_REDIRECT_URL =  '/'
 
 
 
@@ -167,7 +166,7 @@ STATICFILES_DIRS = [
 # STATICFILES_DIRS = [STATIC_DIR,]
 # MEDIA_ROOT = MEDIA_DIR
 # MEDIA_URL = ‘/media/’
-# LOGIN_URL = ‘/dappx/user_login/’
+# LOGIN_URL = ‘/user_login/’
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, …)
