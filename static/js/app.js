@@ -80,7 +80,7 @@
                 // make sure user hasn't already incorrectly guessed letter
                 for (let i =0; i < missedGuesses.length; i++) {
                     if (letterInput == missedGuesses[i]) {
-                        alert("you've already correclty guessed the letter " + "' " + letterInput.toUpperCase() + " ', it's incorrect")
+                        alert("you've already guessed the letter " + "' " + letterInput.toUpperCase() + " ', it's incorrect")
                         break; // fix this
                     }
                 }
@@ -107,6 +107,7 @@
                     // FrontEnd right leg animation
                     console.log('missed guesses: ' +  missedGuesses)
                     alert('Sorry you lost the game, the secret word was "' + secretWord.toUpperCase() + '"! ... try again, start a new game');
+                    $('.revealWord').html(secretWord);
                     // startGame() // done in Django template file
                     // FrontEnd button choice start new game / logout
                 };
