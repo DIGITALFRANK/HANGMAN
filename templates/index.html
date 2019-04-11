@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>HangMAN</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css" media="screen"/>
-  </head>
-  <body>
-    <!-- <h1 class="test">This template will be where you output your SPA html page!!</h1> -->
+
+
+{% extends 'base.html' %}
+{% block body_block %}
+
     <div class="container">
       <header>
         <section id="userInfo">
@@ -49,7 +43,10 @@
         </section>
       </main>
     </div>
+{% endblock %} 
 
+
+<!-- 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -76,4 +73,4 @@
     });
   </script>
   </body>
-</html>
+</html> -->
