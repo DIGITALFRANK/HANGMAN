@@ -4,19 +4,23 @@
     <head>
         <meta charset="utf-8">
         <title>HANGMAN</title>
-        <!-- Latest compiled and minified CSS -->
+        <!-- stylesheets -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
         <link rel="stylesheet" href="/static/css/style.css" media="screen"/>
+        <!-- for jQuery AJAX $.get & $.post() requests purposes -->
+        <script>
+            var gameURL = "{% url 'index' %}"; 
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    {# Django Home Link / Admin Link / Register Link#}
-                    <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-                    {# Some logic on what to display for last item#}
                     {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+                    {% endif %}
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                     <li><a class="navbar-link" href="{% url 'register' %}">Register</a></li>     
@@ -34,30 +38,14 @@
             </div>
         </main>
 
+        <!-- jQuery & JS script files -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
-        <script src="/static/js/app.js"></script>
 
-        <script>
-                $( document ).ready(function() {
-                  // userId = // Django current user
-                  startGame();
-                  // ...
-                  if (userWonGame == true) {
-                    // Django: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
-                    // Django: user.badgepoints += appropriate # based on difficulty
-                  }
-                  // if (userWonGame == false && missedGuesses.length > 5) {
-                  //   alert("Sorry you've lost, try again with a new word");
-                  //   // Django: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
-                  //   startGame(); // or give user option to logout or try new word
-                  // };
-                  // ...
-                  // game business logic using functions & variables found in /static/js/app.js
-                  // use Django variables and connect/save to database here
-                });
-        </script>
+        <script src="/static/js/game_variables.js"></script>
+        <script src="/static/js/ajax_data_access.js"></script>
+        <script src="/static/js/app.js"></script>
     </body>
 </html>

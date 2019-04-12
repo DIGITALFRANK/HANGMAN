@@ -1,26 +1,10 @@
-// $( document ).ready(function() {
-    // let userId = "";  // Django curent user
-    let secretWord = "";
-    let wordReveal = [];
-    let userWonGame = false;
-    let correctGuesses = [];
-    let missedGuesses = [];
-    let difficultyLevel = 'easy'
-    let apiUrl = 'http://app.linkedin-reach.io/words'
 
-    // register possible change in difficulty level
-    difficultyLevel = $('#difficulty').value;
+$( document ).ready(function() {
 
-    if (difficultyLevel == 'medium') {
-        apiUrl = 'http://app.linkedin-reach.io/words+difficulty=medium'; // make necessary url modificaitons
-    } else if (difficultyLevel == 'hard') {
-        apiUrl = 'http://app.linkedin-reach.io/words+difficulty=hard' ;  // make necessary url modificaitons
-    };
-    // these variables are registerd to a new instance of the WordGame model class and saved() into the database after each game
+    startGame();
 
 
-
-    // API call function to fetch random word
+    // API call function to fetch random word => (based on difficulty level)
     function fetchWord() { 
         $.ajax({
             type: 'GET',
@@ -74,6 +58,15 @@
                 if (secretWord == wordReveal.join("")) {
                     alert("Bravo!!  You've won the game")
                     userWonGame = true;
+
+
+                    // AJAX POST request to update database with user.badgepoint += gain
+                    // AJAX POST request to save() WordGame model class instance into database in views.index from dynamic JS variables 
+                    // (secretWord, correctGuesses, missedGuesses, difficultyLevel, userWonGame, ... )
+                    
+                    // saveWordGame()
+                    // updateBadgePoints()
+
                 }
             }; // if none found, add user input word to incorrect guesses list
             if (i == secretWord.length -1 && secretWord.indexOf(letterInput) == -1) {
@@ -85,7 +78,7 @@
                     }
                 }
 
-                alert(letterInput + " is not in the secret word!");
+                alert('" ' + letterInput.toUpperCase() + ' "' + 'is not in the secret word!');
                 missedGuesses.push(letterInput);
                 showMisses()
                 if (missedGuesses.length == 1) {
@@ -108,6 +101,10 @@
                     console.log('missed guesses: ' +  missedGuesses)
                     alert('Sorry you lost the game, the secret word was "' + secretWord.toUpperCase() + '"! ... try again, start a new game');
                     $('.revealWord').html(secretWord);
+                    // saveWordGame()
+                    // updateBadgePoints()
+
+
                     // startGame() // done in Django template file
                     // FrontEnd button choice start new game / logout
                 };
@@ -163,7 +160,7 @@
 
 
 
-// }); // end document ready
+}); // end document ready
 
 
 

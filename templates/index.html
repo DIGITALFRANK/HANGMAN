@@ -3,44 +3,77 @@
 {% extends 'base.html' %}
 {% block body_block %}
 
-    <div class="container">
-      <header>
-        <section id="userInfo">
-          <h2>username / user level</h2>
-          <h2>badge points 11000</h2>
-        </section>
-        <section id="title">
-          <h1>HANGMAN</h1>
-          <h4>game rules</h4>
-          <h4>hangman stats</h4>
-        </section>
-        <section id="difficulty">
-          <h6>difficulty level : <span>easy</span></h6>
-          <!-- Django vaiable? or bootstrap form select, which changes API url in JS -->
-        </section>
-      </header>
-      <main class="mainContent">
-        <section id="wordReveal">
-          <h2 class="revealWord"></h2>
-        </section>
-        <section id="hangMan">
+<div class="container">
+  <header>
+    <section id="userInfo">
+      <h2>username / user level</h2>
+      <h2>badge points 11000</h2>
+    </section>
+    <section id="title">
+      <h1>HANGMAN</h1>
+      <h4>game rules</h4>
+      <h4>hangman stats</h4>
+    </section>
+    <section id="difficulty">
+      <h6>difficulty level : <span>easy</span></h6>
+      <!-- Django vaiable? or bootstrap form select, which changes API url in JS -->
+    </section>
+  </header>
+  <main class="mainContent">
+    <section id="wordReveal">
+      <h2 class="revealWord"></h2>
+    </section>
+    <section id="hangMan">
 
-        </section>
-        <section id="missedGuesses">
-          <h3>incorrect guesses</h3>
-          <!-- <img class="arrowDown" src="/static/imgs/arrowDown.png"/> -->
-          <ul id="missesList">
-            
-          </ul>
-        </section>
-        <section id="guess">
-            <form id="letterGuessForm">
-                <label for="exampleInputEmail1">your guess</label>
-                <input type="text" class="form-control-plaintext" id="letterGuessInput" maxlength="1">
-                <button type="submit" class="btn btn-primary" id="letterGuess">Submit</button>
-                <button type="" class="btn btn-success" id="newGame">New Game</button>
-              </form>
-        </section>
-      </main>
-    </div>
-{% endblock %} 
+    </section>
+    <section id="missedGuesses">
+      <h3>incorrect guesses</h3>
+      <!-- <img class="arrowDown" src="/static/imgs/arrowDown.png"/> -->
+      <ul id="missesList">
+        
+      </ul>
+    </section>
+    <section id="guess">
+        <form id="letterGuessForm">
+            <label for="exampleInputEmail1">your guess</label>
+            <input type="text" class="form-control-plaintext" id="letterGuessInput" maxlength="1">
+            <button type="submit" class="btn btn-primary" id="letterGuess">Submit</button>
+            <button type="" class="btn btn-success" id="newGame">New Game</button>
+          </form>
+    </section>
+  </main>
+</div>
+
+<!-- <script>
+  $( document ).ready(function() {
+    // userId = // Django current user
+    startGame();
+    // ...
+    // if (userWonGame == true) {
+    //   saveGame = () => {
+    //     Django WordGame(secretWord, wordReveal, missedGuesses, {{request.user.id}}).save()
+    //   }
+    //   switch(difficulyLevel) {
+    //     case 'hard':
+    //       user.badgePoints += 300
+    //       break;
+    //     case 'medium':
+    //       user.badgePoints += 200
+    //       break;
+    //     default:
+    //       user.badgePoints += 100
+    //   }
+    //   // Django: user.badgepoints += appropriate # based on difficulty
+    // }
+    // if (userWonGame == false && missedGuesses.length > 5) {
+    //   alert("Sorry you've lost, try again with a new word");
+    //   // Django: WordGame(secretWord, wordReveal, missedGuesses, userId).save()
+    //   startGame(); // or give user option to logout or try new word
+    // };
+    // ...
+    // game business logic using functions & variables found in /static/js/app.js
+    // use Django variables and connect/save to database here
+  });
+</script> -->
+
+{% endblock %}
