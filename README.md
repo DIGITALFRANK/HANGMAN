@@ -1,6 +1,7 @@
 # HANGMAN
 
-This app is word-guessing game the user can play against the computer.
+This app is a word-guessing game the user can play against the computer.
+
 Using a dictionary API, a random word is selected and the user has up to six letter guesses to figure out the word.
 With each guess, either all occurences of the letter in the word are revealed, or the user loses a guess and the wrongly-guessed letter is displayed for future reference.  The user also has the option of guessing the entire word for bonus points.
 
