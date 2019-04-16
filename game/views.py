@@ -6,16 +6,23 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-from django.db import models
+from .models import WordGame
 from django.contrib.auth import views
 
 
 
 
 def index(request):
+    
     if request.method == 'POST':
-        if all (key in request.POST for key in ('userId', 'difficultyLevel', 'secretWord', 'correctGuesses', 'missedGuesses', 'wordReveal', 'userWonGame')):
-            userId = request.POST['userId']
+        print(request.POST['secretWord'])
+        print(request.POST['userWonGame'])
+        print(request.POST['difficultyLevel'])
+        # print(request.POST['difficultyLevel'])
+        # if all (key in request.POST for key in ('difficultyLevel', 'secretWord', 'correctGuesses', 'missedGuesses', 'wordReveal', 'userWonGame')):
+        if request.POST['secretWord']:
+            gameId = request.POST['gameId']
+            userId = request.user.id
             difficultyLevel = request.POST['difficultyLevel']
             secretWord = request.POST['secretWord']
             correctGuesses = request.POST['correctGuesses']
@@ -24,14 +31,20 @@ def index(request):
             userWonGame = request.POST['userWonGame']
 
             # create & save new instance of WordGame for database records
-            WordGame(userId, difficultyLevel, secretWord, correctGuesses, missedGuesses, wordReveal, userWonGame).save()
+            game = WordGame(gameId, userId, difficultyLevel, secretWord, correctGuesses, missedGuesses, wordReveal, userWonGame)
+            game.save()
             return HttpResponse('success') # game records were successfully saved
         else:
             return HttpResponse('fail') # Javascript handles the alert
 
-        if all (key in request.POST for key in ('win', 'loss')):
+        # if all (key in request.POST for key in ('win', 'loss')):
+        if request.POST['result']:
+            current_user = request.user
+            current_user.UserProfileInfo.badgePoints += request.POST['win']
             return HttpResponse('success') # user badge points successfully updated
         else:
+            current_user = request.user
+            current_user.UserProfileInfo.badgePoints += request.POST['loss']
             return HttpResponse('fail') # Javascript handles the alert 
     return render(request,'index.html')
 

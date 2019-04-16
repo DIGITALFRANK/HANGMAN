@@ -32,11 +32,10 @@ class WordGame(models.Model):
     missedGuesses = models.CharField(max_length=6)
     wordReveal = models.CharField(max_length=120)
     userWonGame = models.BooleanField(default=False)
-    
-    
+    # timeStamp = models.TimeField
 
-    # def _str_(self):
-    #    return self.secretWord
+    def _str_(self):
+       return self.secretWord
 
 
 
