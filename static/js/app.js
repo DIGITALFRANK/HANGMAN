@@ -64,8 +64,8 @@ $( document ).ready(function() {
                     // AJAX POST request to save() WordGame model class instance into database in views.index from dynamic JS variables 
                     // (secretWord, correctGuesses, missedGuesses, difficultyLevel, userWonGame, ... )
                     
-                    // saveWordGame()
-                    // updateBadgePoints()
+                    saveWordGame()
+                    updateBadgePoints()
 
                 }
             }; // if none found, add user input word to incorrect guesses list
@@ -78,7 +78,7 @@ $( document ).ready(function() {
                     }
                 }
 
-                alert('" ' + letterInput.toUpperCase() + ' "' + 'is not in the secret word!');
+                alert('" ' + letterInput.toUpperCase() + ' "' + ' is not in the secret word!');
                 missedGuesses.push(letterInput);
                 showMisses()
                 if (missedGuesses.length == 1) {
@@ -101,8 +101,8 @@ $( document ).ready(function() {
                     console.log('missed guesses: ' +  missedGuesses)
                     alert('Sorry you lost the game, the secret word was "' + secretWord.toUpperCase() + '"! ... try again, start a new game');
                     $('.revealWord').html(secretWord);
-                    // saveWordGame()
-                    // updateBadgePoints()
+                    saveWordGame()
+                    updateBadgePoints()
 
 
                     // startGame() // done in Django template file
@@ -121,7 +121,7 @@ $( document ).ready(function() {
     };
 
 
-    // user option to guess entire word function
+    // function for user option to guess entire word
     function wordGuess(wordInput) {
         if (wordInput == secretWord) {
             userWonGame = true;
@@ -140,13 +140,7 @@ $( document ).ready(function() {
     }
 
 
-    // user input letter guess
-    $("#letterGuess").click(function (e) {
-        e.preventDefault();
-        letterGuess($("#letterGuessInput").val());
-        // clear textbox value
-        $("#letterGuessInput").val('');
-    });
+    
 
     // user start new game
     $("#newGame").click(function (e) {
@@ -157,6 +151,124 @@ $( document ).ready(function() {
             alert("you cannot start a new game in the middle of an existing game")
         }  
     });
+
+
+
+    // user input letter guess
+    $("#letterGuess").click(function (e) {
+        e.preventDefault();
+        letterGuess($("#letterGuessInput").val());
+        // clear textbox value
+        $("#letterGuessInput").val('');
+    });
+
+
+
+
+    // user input word guess
+    $("#wordGuess").click(function (e) {
+        e.preventDefault();
+        wordGuess($("#wordGuessInput").val());
+        // clear textbox value
+        $("#wordGuessInput").val('');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    /* /////////// whole word guess lightbox /////////// */
+
+    /* Open when someone clicks on the 'menu' element */
+    function openLightbox(lightbox, style) {
+        var divElement = document.getElementById(lightbox);
+        divElement.style.transition = "left .2s ease-in 0s";
+        divElement.style.left = style;
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeLighbox(lightbox) {
+        document.getElementById(lightbox).style.left = "100%";
+    }
+
+    /* /////////// END whole word guess lightbox /////////// */
+
+
+
+    $("#gameStatsLightbox").click(function (e) {
+        e.preventDefault();
+        openLightbox("gameStats", "0");
+    });
+
+    $("#gameRulesLightbox").click(function (e) {
+        e.preventDefault();
+        gameRulesIn();
+        // openLightbox("gameRules", "0");
+    });
+
+    $("#wordGuessLightbox").click(function (e) {
+        e.preventDefault();
+        openLightbox("wordGuess", "0");
+    });
+
+
+
+
+
+
+
+
+    /* /////////// game rules lightbox /////////// */
+
+    /* Open when someone clicks on the 'menu' element */
+    function gameRulesIn() {
+        var gameRules = document.getElementById("gameRules");
+        gameRules.style.transition = "left .2s ease-in 0s";
+        gameRules.style.left = "0";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeGameRules() {
+        document.getElementById("gameRules").style.left = "100%";
+    }
+
+    /* /////////// END game rules lightbox /////////// */
+
+
+
+
+
+
+    /* /////////// ESC CLOSE on lightboxes /////////// */
+
+    $(document).on('keyup',function(evt) {
+        if (evt.keyCode == 27) {
+        //alert('Esc key pressed.');
+            closeLightbox()
+        }
+    });
+
+    /* /////////// END ESC CLOSE /////////// */
+
+
+
+
+
+
+
+
 
 
 

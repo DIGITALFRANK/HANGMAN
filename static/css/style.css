@@ -191,3 +191,46 @@ header h1 {
 #newGame {
     margin-left: 25px; 
 }
+
+.guessWord {
+    clear: both;
+    display: block;
+    text-align: center;
+    color: rgb(243, 87, 248);
+}
+
+
+
+
+
+
+
+
+/* lighbox */
+
+.lightbox {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */  
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Sit on top */
+    opacity: .98;
+    /*background: #795fe7 /*#0389fb /*#fcdd1b url(imgs/lightbox/lightbox_bg_4.jpg) no-repeat center center fixed*/;
+    /* background: url(imgs/lightbox/lightbox_bg_blur_gradient.jpg) no-repeat center center; */
+    background: blue;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: hidden; /* Disable vertical scroll */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+left: 100%;
+}
+
+
